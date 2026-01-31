@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" href="https://i.postimg.cc/5NMLt8JY/454-sin-titulo-20260113131935.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -30,13 +29,14 @@
       flex-direction: column;
     }
 
+   
     nav {
       display: none;
       align-items: center;
       justify-content: space-between;
       padding: 12px 20px;
       border-bottom: 1px solid rgba(212,175,55,0.3);
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.5);
       backdrop-filter: blur(6px);
       flex-wrap: wrap;
     }
@@ -48,37 +48,15 @@
     .nav-links {
       display: flex;
       gap: 18px;
-      flex-wrap: wrap;
     }
 
     nav a {
       color: var(--gold);
       text-decoration: none;
       font-size: 14px;
-      position: relative;
-      transition: color 0.3s, transform 0.3s;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 2px;
-      background: var(--silver);
-      transition: width 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--silver);
-      transform: translateY(-2px);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
+    
     .login {
       width: 92%;
       max-width: 380px;
@@ -94,7 +72,6 @@
       text-align: center;
       color: var(--gold);
       margin-bottom: 22px;
-      font-size: 20px;
     }
 
     .login input {
@@ -106,7 +83,6 @@
       background: #0b1020;
       color: white;
       font-size: 15px;
-      outline: none;
     }
 
     .login button {
@@ -119,12 +95,6 @@
       font-weight: 600;
       font-size: 15px;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .login button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 15px rgba(212,175,55,0.6);
     }
 
     .error {
@@ -132,8 +102,8 @@
       text-align: center;
       margin-top: 10px;
       display: none;
-      font-size: 14px;
     }
+
 
     .content {
       width: 92%;
@@ -143,53 +113,22 @@
       display: none;
       background: rgba(10,15,30,0.75);
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
       flex: 1;
-    }
-
-    .content h1 {
-      color: var(--gold);
-      margin-bottom: 18px;
-      font-size: 22px;
-    }
-
-    .content p {
-      line-height: 1.7;
-      color: #e0e0e0;
-      font-size: 15px;
-      margin-bottom: 14px;
     }
 
     footer {
       text-align: center;
-      padding: 25px 15px;
+      padding: 25px;
       color: #777;
       font-size: 12px;
     }
-
-    @media (max-width: 600px) {
-      nav {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
-      }
-
-      nav img {
-        height: 52px;
-        margin-bottom: 6px;
-      }
-    }
   </style>
 </head>
+
 <body>
 
   <nav id="navbar">
-    <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp" alt="StarLabs Logo">
+    <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp">
     <div class="nav-links">
       <a href="noticias.html">Noticias</a>
       <a href="cohetes.html">Cohetes</a>
@@ -197,6 +136,7 @@
     </div>
   </nav>
 
+  <!-- LOGIN -->
   <div class="login" id="loginBox">
     <h2>StarLabs Office</h2>
     <input type="text" id="user" placeholder="Usuario">
@@ -205,43 +145,33 @@
     <div class="error" id="error">Usuario o contraseña incorrectos</div>
   </div>
 
+
   <div class="content" id="content">
-    <h1>⚡ | ¿Quiénes somos?</h1>
-
-    <p>
-      <strong>StarLabs Aerospace</strong> es una empresa aeroespacial fundada el
-      <strong>2 de enero de 2011</strong>, impulsada hasta convertirse en un
-      proyecto sólido, visionario y ambicioso.
-    </p>
-
-    <p>
-      Nos especializamos en el desarrollo de
-      <strong>tecnologías aeroespaciales</strong>, satélites y sistemas de
-      lanzamiento. Nuestro enfoque es claro:
-      <strong>innovación, precisión y futuro</strong>.
-    </p>
-
-    <p>
-      En <strong>StarLabs Aerospace</strong> trabajamos para un futuro más
-      tecnológico y para llevar la exploración al siguiente nivel.
-    </p>
-
-    <p><strong>StarLabs Aerospace — innovando para tu futuro.</strong></p>
+    <h1>⚡ Bienvenido a StarLabs</h1>
+    <p>Acceso interno autorizado.</p>
   </div>
 
   <footer>
     © 2011–2026 StarLabs Aerospace · Internal Office
   </footer>
 
-  <script src="contador.js"></script>
 
+  <script src="contador.js?v=2"></script>
+
+  <!-- LOGIN LOGIC -->
   <script>
     function login() {
       const u = document.getElementById("user").value.trim();
       const p = document.getElementById("pass").value;
       const error = document.getElementById("error");
 
-      if (window.USERS && USERS[u] === p) {
+      if (!window.USERS) {
+        console.error("USERS no cargado");
+        error.style.display = "block";
+        return;
+      }
+
+      if (USERS[u] === p) {
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("content").style.display = "block";
         document.getElementById("navbar").style.display = "flex";
