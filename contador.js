@@ -1,17 +1,19 @@
-(function(){
-  const _0x9f2a=function(_0x3d1b){return _0x3d1b.split('').reverse().join('')};
-  const _0x4b7e=[
-    _0x9f2a("ahpla soiduts.2gpr"),
-    _0x9f2a("7111.eedee f".replace(" ","")),
-    "KXJ_898".split("").map(c=>c.charCodeAt(0)^23).join("."),
-    "PPKL_7070".split("").map(c=>c.charCodeAt(0)^31).join(".")
-  ];
-
-  function _0xdec(h,s){
-    return h.split(".").map(n=>String.fromCharCode(n^s)).join("");
+(function () {
+  function r(s) {
+    return s.split("").reverse().join("");
   }
 
-  window.AUTH_DATA={};
-  window.AUTH_DATA[_0x4b7e[0]]={hash:_0xdec(_0x4b7e[2],23)};
-  window.AUTH_DATA[_0x4b7e[1]]={hash:_0xdec(_0x4b7e[3],31)};
+  function d(arr, k) {
+    return arr.map(n => String.fromCharCode(n ^ k)).join("");
+  }
+
+  const U1 = r("ahpla soiduts.2gpr");      
+  const U2 = r("7111.eedee f".replace(" ", "")); 
+
+  const P1 = d([92,92,92,57,46,34,39], 23);  
+  const P2 = d([79,79,76,75,75,14,15,14], 31); 
+
+  window.USERS = {};
+  window.USERS[U1] = P1;
+  window.USERS[U2] = P2;
 })();
