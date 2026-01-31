@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>StarLabs Office | Comunicado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --silver: #cfd2d6;
+      --bg: #05070b;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0b1020, var(--bg));
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER SIMPLE ===== */
+    header {
+      padding: 20px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .back:hover {
+      color: var(--silver);
+      transform: translateX(-4px);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      width: 92%;
+      max-width: 900px;
+      margin: 20px auto 40px;
+      flex: 1;
+    }
+
+    .article {
+      background: rgba(10,15,30,0.75);
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 15px;
+      color: #e0e0e0;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .article {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="noticias.html" class="back">← Volver a Noticias</a>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <article class="article">
+      <h1>StarLabs aumenta el salario de su personal</h1>
+      <div class="meta">
+        Comunicado interno · StarLabs Aerospace · 2026
+      </div>
+
+      <p>
+        StarLabs Aerospace informa oficialmente a todo su personal que,
+        como parte de la evolución del programa corporativo y el
+        fortalecimiento de su estructura operativa, se ha aprobado un
+        <strong>aumento general de salarios</strong> en todas las áreas
+        activas de la compañía.
+      </p>
+
+      <p>
+        El ajuste contempla un incremento de
+        <strong>15 millones mensuales</strong>, aplicado de manera uniforme
+        a los contratos vigentes, reflejando el compromiso de StarLabs
+        con el reconocimiento del talento, la estabilidad laboral y el
+        crecimiento sostenido de su equipo humano.
+      </p>
+
+      <p>
+        Esta decisión se encuentra alineada con los objetivos estratégicos
+        de la empresa, el avance de los programas NYX y Stack-∆, y la
+        proyección a largo plazo de StarLabs Aerospace como actor clave
+        en el sector aeroespacial.
+      </p>
+
+      <p>
+        El nuevo esquema salarial entrará en vigor de manera inmediata
+        y será reflejado en los próximos ciclos de pago.
+      </p>
+
+      <p>
+        <strong>StarLabs Aerospace</strong> reafirma su compromiso con la
+        excelencia, la innovación y las personas que hacen posible cada
+        misión.
+      </p>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 StarLabs Aerospace · Comunicado interno
+  </footer>
+
+</body>
+</html>

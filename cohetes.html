@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>StarLabs Office | Cohetes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --silver: #cfd2d6;
+      --bg: #05070b;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0b1020, var(--bg));
+      color: white;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+    }
+
+    nav img {
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--silver);
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--silver);
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      width: 92%;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    h1 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--gold);
+      margin-top: 30px;
+      font-size: 20px;
+    }
+
+    h3 {
+      color: var(--silver);
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      font-size: 15px;
+      color: #e0e0e0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: rgba(10,15,30,0.75);
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 50px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    /* ===== IMAGES ===== */
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .img-box {
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .img-box img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      nav img {
+        height: 52px;
+        margin-bottom: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp" alt="StarLabs Logo">
+    <div class="nav-links">
+      <a href="inicio.html">Inicio</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="empleados.html">Empleados</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================= NYX ================= -->
+    <div class="card">
+      <h1>INFORME TÉCNICO – NYX-R / NYX-D</h1>
+      <p><strong>Fecha del programa:</strong> 2 de enero de 2019<br>
+      <strong>Operador y desarrollador:</strong> StarLabs Aerospace</p>
+
+      <div class="images">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/tC6mV38V/606-sin-titulo-20251223162017.png">
+        </div>
+        <div class="img-box">
+          <img src="https://i.postimg.cc/9MvYWSmL/606-sin-titulo-20251223162633.png">
+        </div>
+      </div>
+
+      <h2>1. Descripción general</h2>
+      <p>
+        El NYX-R / NYX-D es un vehículo de lanzamiento orbital de dos etapas,
+        diseñado para misiones a LEO, HEO y transferencia translunar.
+        La arquitectura prioriza simplicidad estructural, fiabilidad
+        y costos controlados.
+      </p>
+
+      <h2>2. Dimensiones y masa</h2>
+      <ul>
+        <li>Altura total: 70 m</li>
+        <li>Diámetro máximo: ~4,2 m</li>
+        <li>Masa al lanzamiento: 420–480 t</li>
+        <li>Configuración: dos etapas + cofia</li>
+      </ul>
+
+      <h2>3. Primera etapa (NYX-R)</h2>
+      <ul>
+        <li>3 motores de combustible líquido</li>
+        <li>Propelentes: RP-1 / LOX</li>
+        <li>Empuje total: ~5.400–5.800 kN</li>
+        <li>Isp SL/Vac: ~300 s / ~330 s</li>
+        <li>Tiempo de combustión: ~150–170 s</li>
+      </ul>
+
+      <h2>4. Segunda etapa (NYX-D)</h2>
+      <ul>
+        <li>2 motores optimizados para vacío</li>
+        <li>Isp vacío: ~345–355 s</li>
+        <li>Reencendido: hasta 2 veces</li>
+        <li>Tiempo de combustión: ~360–420 s</li>
+      </ul>
+
+      <h2>5. Rendimiento</h2>
+      <ul>
+        <li>LEO: ~12–15 t</li>
+        <li>GTO: ~4–5 t</li>
+        <li>Translunar: ~2–3 t</li>
+      </ul>
+
+      <h2>Estado del programa</h2>
+      <p>
+        Fase de validación de diseño y pruebas estructurales iniciales.
+        Plataforma base para futuras variantes.
+      </p>
+    </div>
+
+    <!-- ================= STACK DELTA ================= -->
+    <div class="card">
+      <h1>INFORME TÉCNICO – STACK-∆</h1>
+      <p><strong>Fecha:</strong> 7 de enero de 2019<br>
+      <strong>Operador:</strong> StarLabs Aerospace</p>
+
+      <div class="images">
+        <div class="img-box">
+          <img src="https://i.postimg.cc/jjB7N7p4/Screenshot-20260105-145121-Spaceflight-Simulator.jpg">
+        </div>
+      </div>
+
+      <h2>Descripción general</h2>
+      <p>
+        El Stack-∆ es un vehículo de lanzamiento pesado de dos etapas,
+        diseñado para misiones lunares y de alta energía.
+        Prioriza empuje elevado, robustez estructural y amplios márgenes de seguridad.
+      </p>
+
+      <h2>Dimensiones y configuración</h2>
+      <ul>
+        <li>Altura: 80–85 m</li>
+        <li>Diámetro: ~5–6 m</li>
+        <li>Etapas: 2</li>
+        <li>Capacidad: cargas lunares y heavy-lift</li>
+      </ul>
+
+      <h2>Propulsión</h2>
+      <ul>
+        <li>Primera etapa: 4 motores (2 principales + 2 auxiliares)</li>
+        <li>Empuje al despegue: &gt;7 MN</li>
+        <li>Segunda etapa: 2 motores de vacío</li>
+      </ul>
+
+      <h2>Filosofía de diseño</h2>
+      <p>
+        Concebido como un vehículo extremo, prioriza potencia y fiabilidad
+        por encima de la reutilización inmediata, permitiendo levantar
+        cargas excepcionalmente pesadas.
+      </p>
+
+      <h2>Estado del programa (2019)</h2>
+      <p>
+        Diseño avanzado, validación estructural en curso
+        y sistemas de propulsión en fase de integración.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2019–2026 StarLabs Aerospace · Documento técnico interno
+  </footer>
+
+</body>
+</html>

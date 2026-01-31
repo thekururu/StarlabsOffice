@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>StarLabs Office | Empleados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --silver: #cfd2d6;
+      --bg: #05070b;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0b1020, var(--bg));
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+    }
+
+    nav img {
+      height: 60px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--silver);
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--silver);
+      transform: translateY(-2px);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      width: 92%;
+      max-width: 1000px;
+      margin: 50px auto;
+      flex: 1;
+    }
+
+    h1 {
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    /* ===== EMPLOYEES GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      justify-items: center;
+    }
+
+    .employee {
+  width: 240px;              /* ← mismo ancho para todos */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--gold), #f5d76e);
+      margin-bottom: 18px;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .name {
+      font-size: 22px;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 12px;
+      color: var(--silver);
+      letter-spacing: 1px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .avatar {
+        width: 140px;
+        height: 140px;
+      }
+
+      .name {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp" alt="StarLabs Logo">
+    <div class="nav-links">
+      <a href="inicio.html">Inicio</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="cohetes.html">Cohetes</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Personal autorizado</h1>
+
+    <div class="grid">
+
+      <!-- FEDE -->
+      <div class="employee">
+        <div class="avatar">
+          <img src="https://i.postimg.cc/W1CGmCrD/97945b0831f7ba1953e573f40ddb4baf.png" alt="fede">
+        </div>
+        <div class="name">fedee.1117</div>
+      </div>
+
+      <!-- RPG -->
+      <div class="employee">
+        <div class="avatar">
+          <img src="https://i.postimg.cc/nr37XPpb/15bd1cc0a32156a3addf1465032b0cc7.webp" alt="rpg">
+        </div>
+        <div class="name">rpg2.studiosalpha</div>
+        <div class="role">CEO</div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 StarLabs Aerospace · Oficina interna
+  </footer>
+
+</body>
+</html>
