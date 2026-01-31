@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" href="https://i.postimg.cc/5NMLt8JY/454-sin-titulo-20260113131935.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -35,7 +36,7 @@
       justify-content: space-between;
       padding: 12px 20px;
       border-bottom: 1px solid rgba(212,175,55,0.3);
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.55);
       backdrop-filter: blur(6px);
       flex-wrap: wrap;
     }
@@ -86,6 +87,7 @@
       background: rgba(15,20,40,0.75);
       border: 1px solid rgba(212,175,55,0.3);
       border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
 
     .login h2 {
@@ -113,8 +115,16 @@
       border: none;
       border-radius: 10px;
       background: linear-gradient(90deg, var(--gold), #f5d76e);
+      color: #000;
       font-weight: 600;
+      font-size: 15px;
       cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .login button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(212,175,55,0.6);
     }
 
     .error {
@@ -122,6 +132,7 @@
       text-align: center;
       margin-top: 10px;
       display: none;
+      font-size: 14px;
     }
 
     .content {
@@ -132,12 +143,26 @@
       display: none;
       background: rgba(10,15,30,0.75);
       border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
       flex: 1;
+    }
+
+    .content h1 {
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .content p {
+      line-height: 1.7;
+      color: #e0e0e0;
+      font-size: 15px;
+      margin-bottom: 14px;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 25px 15px;
       color: #777;
       font-size: 12px;
     }
@@ -145,82 +170,87 @@
     @media (max-width: 600px) {
       nav {
         justify-content: center;
+        text-align: center;
       }
+
       .nav-links {
         width: 100%;
         justify-content: center;
         margin-top: 10px;
       }
+
       nav img {
         height: 52px;
+        margin-bottom: 6px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<nav id="navbar">
-  <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp">
-  <div class="nav-links">
-    <a href="noticias.html">Noticias</a>
-    <a href="cohetes.html">Cohetes</a>
-    <a href="empleados.html">Empleados</a>
+  <nav id="navbar">
+    <img src="https://i.postimg.cc/hjm3bKNK/454-sin-titulo-20260113131935.webp" alt="StarLabs Logo">
+    <div class="nav-links">
+      <a href="noticias.html">Noticias</a>
+      <a href="cohetes.html">Cohetes</a>
+      <a href="empleados.html">Empleados</a>
+    </div>
+  </nav>
+
+  <div class="login" id="loginBox">
+    <h2>StarLabs Office</h2>
+    <input type="text" id="user" placeholder="Usuario">
+    <input type="password" id="pass" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <div class="error" id="error">Usuario o contraseña incorrectos</div>
   </div>
-</nav>
 
-<div class="login" id="loginBox">
-  <h2>StarLabs Office</h2>
-  <input id="user" placeholder="Usuario">
-  <input id="pass" type="password" placeholder="Contraseña">
-  <button onclick="login()">Entrar</button>
-  <div class="error" id="error">Usuario o contraseña incorrectos</div>
-</div>
+  <div class="content" id="content">
+    <h1>⚡ | ¿Quiénes somos?</h1>
 
-<div class="content" id="content">
-  <h1>⚡ | ¿Quiénes somos?</h1>
-  <p><strong>StarLabs Aerospace</strong> es una empresa aeroespacial fundada el 2 de enero de 2011.</p>
-  <p>Nos especializamos en tecnologías aeroespaciales, satélites y sistemas de lanzamiento.</p>
-  <p><strong>StarLabs Aerospace — innovando para tu futuro.</strong></p>
-</div>
+    <p>
+      <strong>StarLabs Aerospace</strong> es una empresa aeroespacial fundada el
+      <strong>2 de enero de 2011</strong>, impulsada hasta convertirse en un
+      proyecto sólido, visionario y ambicioso.
+    </p>
 
-<footer>© 2011–2026 StarLabs Aerospace · Internal Office</footer>
+    <p>
+      Nos especializamos en el desarrollo de
+      <strong>tecnologías aeroespaciales</strong>, satélites y sistemas de
+      lanzamiento. Nuestro enfoque es claro:
+      <strong>innovación, precisión y futuro</strong>.
+    </p>
 
+    <p>
+      En <strong>StarLabs Aerospace</strong> trabajamos para un futuro más
+      tecnológico y para llevar la exploración al siguiente nivel.
+    </p>
 
-<script src="contador.js"></script>
+    <p><strong>StarLabs Aerospace — innovando para tu futuro.</strong></p>
+  </div>
 
-<script>
-async function sha256(text) {
-  const data = new TextEncoder().encode(text);
-  const hash = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(hash))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
-}
+  <footer>
+    © 2011–2026 StarLabs Aerospace · Internal Office
+  </footer>
 
-async function login() {
-  const u = document.getElementById("user").value.trim();
-  const p = document.getElementById("pass").value;
-  const error = document.getElementById("error");
+  <script src="contador.js"></script>
 
-  if (!AUTH_DATA[u]) {
-    error.style.display = "block";
-    return;
-  }
+  <script>
+    function login() {
+      const u = document.getElementById("user").value.trim();
+      const p = document.getElementById("pass").value;
+      const error = document.getElementById("error");
 
-  const hash = await sha256(p);
-
-  if (hash === AUTH_DATA[u].hash) {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("content").style.display = "block";
-    document.getElementById("navbar").style.display = "flex";
-    error.style.display = "none";
-  } else {
-    error.style.display = "block";
-  }
-}
-</script>
+      if (window.USERS && USERS[u] === p) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        document.getElementById("navbar").style.display = "flex";
+        error.style.display = "none";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
 
 </body>
 </html>
-
